@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from "react-router-dom";
 import './App.css';
+import { IonApp } from '@ionic/react';
+import SearchForm from './SearchForm';
+import SearchResult from './SearchResult'
 
-function App() {
+export default function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <IonApp >
+    <Switch>
+      <Route path='/search'>
+        <SearchResult />
+      </Route>
+      <Route path='/'>
+      <SearchForm />
+        </Route>
+    </Switch>
+    </IonApp> 
+    );
 }
-
-export default App;
